@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>WEB-INF/spring/application.properties</value>
+				<value>${captchaServiceConfigFile}</value>
+			</list>
+		</property>
+	</bean>
+	
+	<import resource="captcha_colors.xml" />
+    <import resource="captcha_lutece.xml" />
+		
+
+	<jaxws:endpoint id="captchaCXFServiceEndpoint" implementor="#captchaCXFService"
+		address="${captcha.service.currentVersion.url}" />
+
+	<bean id="captchaCXFService" class="fr.mcc.transverse.captcha.service.CaptchaWebServiceImpl">
+		<property name="imageCaptchaService" ref="imageCaptchaService" />
+		<property name="soundCaptchaService" ref="soundCaptchaService" />
+	</bean>
+</beans>

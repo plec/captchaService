@@ -1,0 +1,136 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="colorGenRandomList"
+		class="com.octo.captcha.component.image.color.RandomListColorGenerator">
+		<constructor-arg index="0">
+			<list>
+				<ref bean="yellow" />
+				<ref bean="blue" />
+				<ref bean="lightBlue" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="blue" class="java.awt.Color">
+		<constructor-arg type="int" index="0">
+			<value>0</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="1">
+			<value>0</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="2">
+			<value>255</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="lightBlue" class="java.awt.Color">
+		<constructor-arg type="int" index="0">
+			<value>200</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="1">
+			<value>200</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="2">
+			<value>255</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="customColor" class="java.awt.Color">
+		<constructor-arg type="int" index="0">
+			<value>${captcha.conf.image.font.custom.color.red}</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="1">
+			<value>${captcha.conf.image.font.custom.color.green}</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="2">
+			<value>${captcha.conf.image.font.custom.color.blue}</value>
+		</constructor-arg>
+			</bean>
+		<bean id="customBackgroundColor" class="java.awt.Color">
+		<constructor-arg type="int" index="0">
+			<value>${captcha.conf.image.background.custom.color.red}</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="1">
+			<value>${captcha.conf.image.background.custom.color.green}</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="2">
+			<value>${captcha.conf.image.background.custom.color.blue}</value>
+		</constructor-arg>
+			</bean>
+
+	<bean id="yellow" class="java.awt.Color">
+		<constructor-arg type="int" index="0">
+			<value>255</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="1">
+			<value>255</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="2">
+			<value>0</value>
+		</constructor-arg>
+	</bean>
+		<bean id="red" class="java.awt.Color">
+		<constructor-arg type="int" index="0">
+			<value>255</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="1">
+			<value>0</value>
+		</constructor-arg>
+		<constructor-arg type="int" index="2">
+			<value>0</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="randomColorGenerator"
+		class="com.octo.captcha.component.image.color.RandomListColorGenerator">
+		<constructor-arg>
+			<list>
+				<ref bean="blue" />
+				<ref bean="lightBlue" />
+				<ref bean="yellow" />
+				<ref bean="black" />
+				<ref bean="white" />
+				<ref bean="grey" />
+			</list>
+		</constructor-arg>
+	</bean>
+		<bean id="randomDarkColorGenerator"
+		class="com.octo.captcha.component.image.color.RandomListColorGenerator">
+		<constructor-arg>
+			<list>
+				<ref bean="blue" />
+				<ref bean="black" />
+				<ref bean="red" />
+				
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="colorGenRandomBlue"
+		class="com.octo.captcha.component.image.color.RandomRangeColorGenerator">
+		<constructor-arg index="0">
+			<list>
+				<value>150</value>
+				<value>255</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<list>
+				<value>0</value>
+				<value>50</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<list>
+				<value>200</value>
+				<value>255</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<list>
+				<value>255</value>
+				<value>255</value>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
