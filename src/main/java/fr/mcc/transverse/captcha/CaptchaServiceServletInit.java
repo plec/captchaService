@@ -35,7 +35,6 @@ public class CaptchaServiceServletInit implements ServletContextAware {
     /**
     * {@inheritDoc}
     */
-    @Override
     public void setServletContext(ServletContext servletContext) {
         AppPathService.init(servletContext);
         try {

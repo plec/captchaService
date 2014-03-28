@@ -9,9 +9,6 @@
 		<!--property name="configPath" value="WEB-INF/jcaptcha" / -->
 	</bean>
 
-	<!-- JBoss Store -->
-	<bean id="distributedCaptchaStore" class="com.octo.captcha.service.captchastore.JBossCacheCaptchaStore"/>
-
 		<!-- In memory hash map Store -->
 	<bean id="fastHashMapImageCaptchaStore" class=" com.octo.captcha.service.captchastore.FastHashMapCaptchaStore"/>
 		<!-- In memory hash map Store -->
@@ -124,7 +121,7 @@
 		class="fr.paris.lutece.plugins.jcaptcha.service.sound.LuteceSoundConfigurator">
 		<constructor-arg index="0" value="${captcha.conf.audio.pitch}"/><!-- pitch -->
 		<constructor-arg index="1" value="${captcha.conf.audio.rate}"/><!-- rate -->
-		<constructor-arg index="2" value="${captcha.conf.audio.valume}"/><!-- volume -->
+		<constructor-arg index="2" value="${captcha.conf.audio.volume}"/><!-- volume -->
 	</bean>
 
 	<bean id="backgroundMixerConfigurator"

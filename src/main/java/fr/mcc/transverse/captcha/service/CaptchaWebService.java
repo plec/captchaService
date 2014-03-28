@@ -6,7 +6,7 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.ParameterStyle;
 
-@WebService
+@WebService(targetNamespace = "http://fr.mcc.transverse.captcha.service/catpcha/v1.0")
 @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL, parameterStyle = ParameterStyle.WRAPPED)
 public interface CaptchaWebService {
 	/**

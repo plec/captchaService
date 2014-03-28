@@ -33,5 +33,6 @@
 	<bean id="captchaCXFService" class="fr.mcc.transverse.captcha.service.CaptchaWebServiceImpl">
 		<property name="imageCaptchaService" ref="imageCaptchaService" />
 		<property name="soundCaptchaService" ref="soundCaptchaService" />
-	</bean>
+		<property name="panicMode" value="${captcha.service.panicMode}" />
+			</bean>
 </beans>

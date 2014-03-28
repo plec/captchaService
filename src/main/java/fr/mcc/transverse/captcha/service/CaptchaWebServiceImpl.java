@@ -11,10 +11,15 @@ import com.octo.captcha.service.CaptchaServiceException;
 import com.octo.captcha.service.multitype.GenericManageableCaptchaService;
 
 @WebService(endpointInterface = "fr.mcc.transverse.captcha.service.CaptchaWebService", 
-targetNamespace = "http://fr.mcc.transverse.captcha.service/catpcha/v1.0.0", serviceName = "CaptchaService", name = "Captcha")
+targetNamespace = "http://fr.mcc.transverse.captcha.service/catpcha/v1.0", serviceName = "CaptchaService", name = "Captcha")
 public class CaptchaWebServiceImpl implements CaptchaWebService {
 	/** LOGGER */
 	private static final Logger LOGGER = Logger.getLogger(CaptchaWebServiceImpl.class);
+	
+	/**
+	 * panicMode : boolean indicate if panicMode is activated or not (default not). If activated, the validation service always return true and don't check the challenge
+	 */
+	private boolean panicMode = false;
 	/**
 	 * captcha service for image captcha
 	 */
@@ -87,6 +92,11 @@ public class CaptchaWebServiceImpl implements CaptchaWebService {
 	 */
 	private boolean validateChallenge(GenericManageableCaptchaService captacheService, String challengeId, String userResponse) {
 		try {
+			if (panicMode) {
+				LOGGER.warn("############## PANIC MODE ACTIVATED ############## ");
+				LOGGER.warn("############## TOUS LES CHALLENGES SONT AUTOMATIQUEMENT VALIDES ############## ");
+				return true;
+			}
 			String userResponseMin = userResponse.toLowerCase();
 			LOGGER.info("check captcha for challenge : " + challengeId + " user response : " + userResponseMin);
 			if (captacheService.validateResponseForID(challengeId, userResponseMin)) {
@@ -111,5 +121,12 @@ public class CaptchaWebServiceImpl implements CaptchaWebService {
 	 */
 	public void setSoundCaptchaService(GenericManageableCaptchaService soundCaptchaService) {
 		this.soundCaptchaService = soundCaptchaService;
+	}
+
+	/**
+	 * @param panicMode the panicMode to set
+	 */
+	public void setPanicMode(boolean panicMode) {
+		this.panicMode = panicMode;
 	}
 }

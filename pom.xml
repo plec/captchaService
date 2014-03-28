@@ -4,7 +4,7 @@
 	<groupId>fr.mcc.transverse</groupId>
 	<artifactId>captchaService</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>captchaService Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<repositories>
@@ -12,6 +12,11 @@
 			<id>jboss-releases</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
 		</repository>
+		<repository>
+			<id>maven.jahia.org</id>
+			<url>http://maven.jahia.org/maven2/</url>
+		</repository>
+				
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -25,54 +30,41 @@
 			<groupId>fr.paris.lutece</groupId>
 			<artifactId>lutece-core</artifactId>
 			<version>2.9.9</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/lutece-core-2.9.9.jar</systemPath>
+ 			<scope>system</scope>
+			<systemPath>${perso.basedir}/src/main/webapp/WEB-INF/lib/lutece-core-2.9.9.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>fr.paris.lutece</groupId>
 			<artifactId>plugin-jcaptcha</artifactId>
 			<version>2.9.9</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/plugin-jcaptcha-2.1.2.jar</systemPath>
+ 			<scope>system</scope>
+			<systemPath>${perso.basedir}/src/main/webapp/WEB-INF/lib/plugin-jcaptcha-2.1.2.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.tritonus.dsp</groupId>
 			<artifactId>tritonus_dsp</artifactId>
 			<version>0.3.6</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/tritonus_dsp-0.3.6.jar</systemPath>
+ 			<scope>system</scope>
+			<systemPath>${perso.basedir}/src/main/webapp/WEB-INF/lib/tritonus_dsp-0.3.6.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.tritonus.share</groupId>
 			<artifactId>tritonus_share</artifactId>
 			<version>0.3.6</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/tritonus_share-0.3.6.jar</systemPath>
+ 			<scope>system</scope>
+			<systemPath>${perso.basedir}/src/main/webapp/WEB-INF/lib/tritonus_share-0.3.6.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>com.jhlabs</groupId>
 			<artifactId>imaging</artifactId>
 			<version>01012005</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/imaging-01012005.jar</systemPath>
 		</dependency>
+
 		<dependency>
 			<groupId>com.octo.captcha</groupId>
 			<artifactId>jcaptcha-extension-ehcache-store</artifactId>
 			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.octo.captcha</groupId>
-			<artifactId>jcaptcha-extension-jbosscache-store</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/jcaptcha-extension-jbosscache-store-1.0.jar</systemPath>
-			<exclusions>
-				<exclusion>
-					<groupId>fr.paris.lutece</groupId>
-					<artifactId>lutece-core</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.octo.captcha</groupId>
@@ -124,11 +116,6 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.cache</groupId>
-			<artifactId>jbosscache-core</artifactId>
-			<version>3.2.7.GA</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${cxf.version}</version>
@@ -147,6 +134,7 @@
 	<properties>
 		<cxf.version>2.7.10</cxf.version>
 		<org.springframework-version>3.0.6.RELEASE</org.springframework-version>
+		<perso.basedir>D:/dev/jee/gitrepo/captchaService/</perso.basedir>
 	</properties>
 
 </project>
